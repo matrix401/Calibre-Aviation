@@ -1,0 +1,448 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-sky: var(--sky);
+  --color-navy: var(--navy);
+  --color-gold: var(--gold);
+  --color-cloud: var(--cloud);
+  --color-runway: var(--runway);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Aviation palette */
+  --navy: oklch(0.22 0.06 255);
+  --sky: oklch(0.62 0.16 240);
+  --sky-bright: oklch(0.78 0.14 230);
+  --gold: oklch(0.82 0.15 85);
+  --cloud: oklch(0.98 0.005 240);
+  --runway: oklch(0.32 0.02 250);
+
+  --background: oklch(0.985 0.005 240);
+  --foreground: oklch(0.18 0.05 255);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.05 255);
+  --primary: oklch(0.22 0.06 255);
+  --primary-foreground: oklch(0.985 0.005 240);
+  --secondary: oklch(0.93 0.02 240);
+  --secondary-foreground: oklch(0.22 0.06 255);
+  --muted: oklch(0.95 0.012 240);
+  --muted-foreground: oklch(0.45 0.04 250);
+  --accent: oklch(0.82 0.15 85);
+  --accent-foreground: oklch(0.22 0.06 255);
+  --border: oklch(0.88 0.02 240);
+  --input: oklch(0.92 0.02 240);
+  --ring: oklch(0.62 0.16 240);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --font-display: "Bebas Neue", "Oswald", Impact, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --gradient-sky: linear-gradient(
+    135deg,
+    oklch(0.22 0.06 255) 0%,
+    oklch(0.42 0.16 250) 50%,
+    oklch(0.78 0.14 230) 100%
+  );
+
+  --gradient-gold: linear-gradient(
+    135deg,
+    oklch(0.82 0.15 85),
+    oklch(0.72 0.18 60)
+  );
+
+  --gradient-dawn: linear-gradient(
+    180deg,
+    oklch(0.32 0.10 260) 0%,
+    oklch(0.62 0.14 245) 40%,
+    oklch(0.85 0.12 70) 100%
+  );
+
+  --shadow-sky: 0 20px 60px -15px oklch(0.22 0.06 255 / 0.45);
+  --shadow-gold: 0 14px 50px -10px oklch(0.72 0.18 60 / 0.5);
+  --shadow-soft: 0 10px 40px -10px oklch(0.22 0.06 255 / 0.18);
+}
+
+.dark {
+  --background: oklch(0.14 0.04 255);
+  --foreground: oklch(0.98 0.005 240);
+  --card: oklch(0.2 0.05 255);
+  --card-foreground: oklch(0.98 0.005 240);
+  --primary: oklch(0.78 0.14 230);
+  --primary-foreground: oklch(0.14 0.04 255);
+  --secondary: oklch(0.26 0.05 255);
+  --secondary-foreground: oklch(0.98 0.005 240);
+  --muted: oklch(0.26 0.05 255);
+  --muted-foreground: oklch(0.72 0.03 240);
+  --accent: oklch(0.82 0.15 85);
+  --accent-foreground: oklch(0.14 0.04 255);
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.78 0.14 230);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+
+    background-image:
+      radial-gradient(
+        circle at 80% -10%,
+        oklch(0.78 0.14 230 / 0.22),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at -10% 90%,
+        oklch(0.82 0.15 85 / 0.16),
+        transparent 55%
+      );
+
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.005em;
+  }
+}
+
+/* ========== SKYBACKDROP ANIMATIONS ========== */
+
+@keyframes cloudDrift {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px));
+  }
+}
+
+@keyframes planeFly {
+  0% {
+    transform: translateX(calc(100vw + 150px)) translateY(80vh) rotate(-3deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-150px) translateY(10vh) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+.animate-cloud {
+  animation: cloudDrift linear infinite;
+  will-change: transform;
+}
+
+.animate-plane-fly {
+  animation: planeFly 22s ease-in-out infinite;
+  will-change: transform;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
+}
+
+/* ========== CURSOR FIXES ========== */
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* ========== EXISTING ANIMATIONS ========== */
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.animate-blink {
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(249, 115, 22, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  animation: reveal 0.6s ease-out forwards;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+@keyframes radar {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-radar {
+  animation: radar 1.5s ease-out infinite;
+}
+
+@keyframes runway {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50.1% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+.animate-runway {
+  animation: runway 2.5s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* ========== COURSE FINDER TEXT FIX ========== */
+
+/* Make main description text darker and readable */
+#finder .text-muted-foreground {
+  color: #1e293b !important;
+}
+
+.dark #finder .text-muted-foreground {
+  color: #94a3b8 !important;
+}
+
+/* Make the placeholder text in input darker */
+#finder input::placeholder {
+  color: #64748b !important;
+  opacity: 1;
+}
+
+.dark #finder input::placeholder {
+  color: #64748b !important;
+}
+
+/* Make the prompt buttons text readable */
+#finder button {
+  color: #1e293b !important;
+  background-color: #e2e8f0 !important;
+}
+
+.dark #finder button {
+  color: #f1f5f9 !important;
+  background-color: #334155 !important;
+}
+
+#finder button:hover {
+  background-color: #fbbf24 !important;
+  color: #0f172a !important;
+}
+
+/* Make the heading text stand out */
+#finder h2 {
+  color: #0f172a !important;
+}
+
+.dark #finder h2 {
+  color: #f8fafc !important;
+}
+
+/* Make the "Best match" tag readable */
+#finder .bg-accent {
+  background-color: #fbbf24 !important;
+  color: #0f172a !important;
+}
+
+/* Make the card text readable */
+#finder .bg-card h3 {
+  color: #0f172a !important;
+}
+
+.dark #finder .bg-card h3 {
+  color: #f8fafc !important;
+}
+
+/* No results message */
+#finder .text-center.text-muted-foreground {
+  color: #475569 !important;
+}
+
+.dark #finder .text-center.text-muted-foreground {
+  color: #94a3b8 !important;
+}
+
+/* ========== FINAL BOARDING CALL SECTION FIX ========== */
+
+/* Make all text in Visit section dark and readable */
+#visit p,
+#visit h2,
+#visit span,
+#visit li,
+#visit strong,
+#visit a:not([href^="tel"]):not([href^="mailto"]) {
+  color: #1e293b !important;
+}
+
+/* Make the gradient background lighter so dark text shows */
+#visit .gradient-sky {
+  background: linear-gradient(135deg, #e0f2fe 0%, #fef9c3 100%) !important;
+}
+
+/* Make phone and email buttons visible */
+#visit a[href^="tel"],
+#visit a[href^="mailto"] {
+  background-color: #1e293b !important;
+  color: white !important;
+  border: none !important;
+}
+
+#visit a[href^="tel"]:hover,
+#visit a[href^="mailto"]:hover {
+  background-color: #fbbf24 !important;
+  color: #1e293b !important;
+}
+
+/* Make the address text visible */
+#visit ul li span {
+  color: #1e293b !important;
+}
+
+#visit ul li strong {
+  color: #0f172a !important;
+}
+
+/* Dark mode support */
+.dark #visit p,
+.dark #visit h2,
+.dark #visit span,
+.dark #visit li,
+.dark #visit strong {
+  color: #f1f5f9 !important;
+}
+
+.dark #visit .gradient-sky {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+}
+
+.dark #visit a[href^="tel"],
+.dark #visit a[href^="mailto"] {
+  background-color: #fbbf24 !important;
+  color: #1e293b !important;
+}
+
+/* ========== FORCE LOGO TRANSPARENCY ========== */
+
+nav img {
+  background: transparent !important;
+  background-color: transparent !important;
+  mix-blend-mode: multiply;
+}
+
+nav a,
+nav .flex.items-center {
+  background: transparent !important;
+}
+
