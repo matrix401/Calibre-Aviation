@@ -445,4 +445,19 @@ nav a,
 nav .flex.items-center {
   background: transparent !important;
 }
+/* WhatsApp Pulse Animation (Green) */
+@keyframes pulse-ring-wa {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
 
+.animate-pulse-ring-wa {
+  animation: pulse-ring-wa 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

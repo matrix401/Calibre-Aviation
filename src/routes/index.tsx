@@ -32,6 +32,7 @@ function Home() {
   const [formState, setFormState] = useState<'form' | 'success' | 'error'>('form');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showFloatingButton, setShowFloatingButton] = useState(false);
+  const [isEnquiryPulsing, setIsEnquiryPulsing] = useState(true);
   
   const [mainFormData, setMainFormData] = useState({
     name: '',
@@ -52,15 +53,20 @@ function Home() {
   // Scroll listener for floating button
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setShowFloatingButton(true);
-      } else {
-        setShowFloatingButton(false);
-      }
+      setShowFloatingButton(window.scrollY > 200);
     };
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Alternate pulse every 2 seconds (1 sec each)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsEnquiryPulsing(prev => !prev);
+    }, 2000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const handleMainFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -180,6 +186,7 @@ function Home() {
             <p className="text-gray-400 text-lg">Visit our aviation academy branches across India</p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Visakhapatnam Branch */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800.3824903009745!2d83.30642399999999!3d17.726607999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQzJzM1LjgiTiA4M8KwMTgnMjMuMSJF!5e0!3m2!1sen!2sin!4v1778486299371!5m2!1sen!2sin"
@@ -194,6 +201,8 @@ function Home() {
                 <p className="text-gray-400">Professional aviation training centre in Visakhapatnam.</p>
               </div>
             </div>
+
+            {/* Rajahmundry Branch */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
                 src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Rajahmundry&output=embed"
@@ -208,20 +217,24 @@ function Home() {
                 <p className="text-gray-400">Professional aviation training centre in Rajahmundry.</p>
               </div>
             </div>
-<div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1912.784508854291!2d80.6510099!3d16.4973466!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb4cf2f619ab%3A0x2fbe50c861ca8ffe!2sCalibre%20Aviation%20Academy%20Private%20Limited!5e0!3m2!1sen!2sin!4v1779685176074!5m2!1sen!2sin"
-    width="100%"
-    height="280"
-    style={{ border: 0 }}
-    loading="lazy"
-    allowFullScreen
-  ></iframe>
-  <div className="p-6">
-    <h3 className="text-2xl font-normal mb-2">Vijayawada Branch</h3>
-    <p className="text-gray-400">Aviation academy branch serving Vijayawada students.</p>
-  </div>
-</div>
+
+            {/* Vijayawada Branch - Fixed Map */}
+            <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1912.784508854291!2d80.6510099!3d16.4973466!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb4cf2f619ab%3A0x2fbe50c861ca8ffe!2sCalibre%20Aviation%20Academy%20Private%20Limited!5e0!3m2!1sen!2sin!4v1779685176074!5m2!1sen!2sin"
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+              ></iframe>
+              <div className="p-6">
+                <h3 className="text-2xl font-normal mb-2">Vijayawada Branch</h3>
+                <p className="text-gray-400">Aviation academy branch serving Vijayawada students.</p>
+              </div>
+            </div>
+
+            {/* Hyderabad Branch */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
                 src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Hyderabad&output=embed"
@@ -247,7 +260,6 @@ function Home() {
             <p className="text-gray-400 text-lg">Start your aviation career journey today.</p>
           </div>
           <form onSubmit={handleMainFormSubmit} className="space-y-6">
-            {/* Name - Required */}
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Your Name <span className="text-red-500">*</span>
@@ -263,7 +275,6 @@ function Home() {
               />
             </div>
 
-            {/* Phone Number - Required */}
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Phone Number <span className="text-red-500">*</span>
@@ -279,7 +290,6 @@ function Home() {
               />
             </div>
 
-            {/* Location - Required */}
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Location <span className="text-red-500">*</span>
@@ -295,7 +305,6 @@ function Home() {
               />
             </div>
 
-            {/* Course - Required */}
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Course Interested In <span className="text-red-500">*</span>
@@ -316,7 +325,6 @@ function Home() {
               </select>
             </div>
 
-            {/* Message - Optional */}
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Message <span className="text-gray-500">(optional)</span>
@@ -521,11 +529,29 @@ function Home() {
         </div>
       )}
 
-      {/* Floating Enquiry Button - appears when scrolled down */}
+      {/* Floating WhatsApp Button */}
+{showFloatingButton && (
+  <button
+    onClick={() => window.open("https://wa.me/918341040921?text=Hello!%2C%20I'm%20interested%20in%20your%20aviation%20program%20and%20I%20would%20like%20to%20join%20it%0A%0AName%20%3A-%0ALocation%2FArea%20%3A-", "_blank")}
+    className={`fixed bottom-28 right-6 z-50 rounded-full bg-green-500 hover:bg-green-600 text-white p-3 shadow-lg transition-all duration-300 cursor-pointer ${!isEnquiryPulsing ? 'animate-pulse-ring-wa' : ''}`}
+  >
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="28" 
+      height="28" 
+      viewBox="0 0 24 24" 
+      fill="currentColor"
+    >
+      <path d="M12.032 2.001c-5.514 0-9.998 4.485-9.998 10 0 1.899.53 3.675 1.445 5.214l-1.413 4.78 5.002-1.315c1.476.74 3.13 1.133 4.849 1.133 5.513 0 9.998-4.485 9.998-10 0-5.515-4.485-10-9.998-10zm0 18.4c-1.53 0-3.022-.428-4.307-1.225l-3.261.857.939-3.197c-.873-1.313-1.347-2.819-1.347-4.407 0-4.575 3.734-8.3 8.324-8.3 4.59 0 8.323 3.725 8.323 8.3 0 4.575-3.733 8.3-8.323 8.3zm4.16-6.446c-.229-.115-1.357-.672-1.566-.748-.209-.077-.361-.115-.514.115-.152.23-.59.748-.723.902-.134.154-.267.173-.496.058-.229-.115-.967-.357-1.842-1.142-.68-.61-1.141-1.364-1.274-1.595-.133-.23-.015-.354.1-.469.104-.103.229-.269.343-.403.115-.134.153-.23.23-.384.077-.154.038-.288-.019-.403-.058-.115-.514-1.243-.704-1.702-.184-.445-.372-.384-.513-.391-.134-.007-.287-.008-.44-.008-.152 0-.399.057-.608.286-.209.23-.797.78-.797 1.903 0 1.122.816 2.207.93 2.36.115.153 1.606 2.447 3.89 3.429 2.284.982 2.284.654 2.695.614.411-.04 1.327-.543 1.514-1.067.187-.524.187-.971.131-1.064-.056-.094-.208-.153-.437-.269z"/>
+    </svg>
+  </button>
+)}
+
+      {/* Floating Enquiry Button */}
       {showFloatingButton && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-6 z-50 rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm sm:text-base font-semibold px-5 py-3 shadow-lg transition-all duration-300 cursor-pointer animate-pulse-ring"
+          className={`fixed bottom-6 right-6 z-50 rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm sm:text-base font-semibold px-5 py-3 shadow-lg transition-all duration-300 cursor-pointer ${isEnquiryPulsing ? 'animate-pulse-ring' : ''}`}
         >
           Enquire now
         </button>
