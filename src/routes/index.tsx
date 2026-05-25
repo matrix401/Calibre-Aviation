@@ -208,20 +208,20 @@ function Home() {
                 <p className="text-gray-400">Professional aviation training centre in Rajahmundry.</p>
               </div>
             </div>
-            <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-              <iframe
-                src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Visakhapatnam&output=embed"
-                width="100%"
-                height="280"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-              ></iframe>
-              <div className="p-6">
-                <h3 className="text-2xl font-normal mb-2">Vijayawada Branch</h3>
-                <p className="text-gray-400">Aviation academy branch serving Vijayawada students.</p>
-              </div>
-            </div>
+<div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1912.784508854291!2d80.6510099!3d16.4973466!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb4cf2f619ab%3A0x2fbe50c861ca8ffe!2sCalibre%20Aviation%20Academy%20Private%20Limited!5e0!3m2!1sen!2sin!4v1779685176074!5m2!1sen!2sin"
+    width="100%"
+    height="280"
+    style={{ border: 0 }}
+    loading="lazy"
+    allowFullScreen
+  ></iframe>
+  <div className="p-6">
+    <h3 className="text-2xl font-normal mb-2">Vijayawada Branch</h3>
+    <p className="text-gray-400">Aviation academy branch serving Vijayawada students.</p>
+  </div>
+</div>
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
                 src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Hyderabad&output=embed"
