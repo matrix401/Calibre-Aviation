@@ -777,6 +777,19 @@ function Courses() {
 }
 
 function Placements() {
+  const placedStudents = [
+    { name: "Tanvi Muvva", role: "Cabin Crew", airport: "Rajiv Gandhi International, Hyderabad", airline: "IndiGo", logo: "https://www.logo.wine/a/logo/IndiGo/IndiGo-Logo.wine.svg", logoSize: "h-10" },
+    { name: "Ramesh", role: "Ground Handling", airport: "Rajiv Gandhi International, Hyderabad", airline: "Air India", logo: "https://www.logo.wine/a/logo/Air_India/Air_India-Logo.wine.svg", logoSize: "h-10" },
+    { name: "Yuvraj", role: "Passenger Service", airport: "Rajiv Gandhi International, Hyderabad", airline: "Vistara", logo: "https://www.logo.wine/a/logo/Vistara/Vistara-Logo.wine.svg", logoSize: "h-10" },
+    { name: "Neeraj", role: "Ground Handling", airport: "Rajiv Gandhi International, Hyderabad", airline: "SpiceJet", logo: "https://upload.wikimedia.org/wikipedia/hi/f/fa/SpiceJet_logo.png", logoSize: "h-6" },
+    { name: "Srivennela", role: "Cabin Crew", airport: "Rajiv Gandhi International, Hyderabad", airline: "Akasa Air", logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Akasa_Air_logo.svg", logoSize: "h-4" },
+    { name: "Jyothika", role: "Passenger Service", airport: "Rajiv Gandhi International, Hyderabad", airline: "IndiGo", logo: "https://www.logo.wine/a/logo/IndiGo/IndiGo-Logo.wine.svg", logoSize: "h-10" },
+    { name: "Nithin", role: "Air Ticketing", airport: "Rajiv Gandhi International, Hyderabad", airline: "Air India", logo: "https://www.logo.wine/a/logo/Air_India/Air_India-Logo.wine.svg", logoSize: "h-10" },
+    { name: "Fathima", role: "Cabin Crew", airport: "Rajiv Gandhi International, Hyderabad", airline: "Vistara", logo: "https://www.logo.wine/a/logo/Vistara/Vistara-Logo.wine.svg", logoSize: "h-10" },
+    { name: "Ram Tej", role: "Ground Handling", airport: "Rajiv Gandhi International, Hyderabad", airline: "SpiceJet", logo: "https://upload.wikimedia.org/wikipedia/hi/f/fa/SpiceJet_logo.png", logoSize: "h-6" },
+    { name: "Akhila", role: "Passenger Service", airport: "Rajiv Gandhi International, Hyderabad", airline: "Akasa Air", logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Akasa_Air_logo.svg", logoSize: "h-4" },
+  ];
+
   return (
     <section id="placements" className="relative py-24 px-6 bg-primary text-primary-foreground overflow-hidden">
       <div className="absolute inset-0 grid-runway opacity-40" />
@@ -791,15 +804,22 @@ function Placements() {
           </p>
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {placedAt.map((p, i) => (
-            <div key={p.name} className="group relative rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 backdrop-blur p-5 hover:bg-primary-foreground/10 transition" style={{ animationDelay: `${i * 50}ms` }}>
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-accent">PLACED</span>
-                <Plane className="h-3.5 w-3.5 text-accent -rotate-45" />
+          {placedStudents.map((student, i) => (
+            <div key={student.name} className="group relative rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 backdrop-blur p-5 hover:bg-primary-foreground/10 transition" style={{ animationDelay: `${i * 50}ms` }}>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-accent">PLACED - {student.airline}</span>
+                <img 
+                  src={student.logo} 
+                  alt={student.airline} 
+                  className={`${student.logoSize} w-auto object-contain opacity-80 group-hover:opacity-100 transition`}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
+                />
               </div>
-              <p className="font-display text-2xl mt-3">{p.name}</p>
-              <p className="text-xs text-primary-foreground/70 mt-1">{p.role}</p>
-              <p className="text-xs text-primary-foreground/50 mt-3 border-t border-primary-foreground/10 pt-3">{p.airport}</p>
+              <p className="font-display text-2xl mt-3">{student.name}</p>
+              <p className="text-xs text-primary-foreground/70 mt-1">{student.role}</p>
+              <p className="text-xs text-primary-foreground/50 mt-3 border-t border-primary-foreground/10 pt-3">{student.airport}</p>
             </div>
           ))}
         </div>
