@@ -4,6 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+  publicDir: "Public",
   plugins: [
     react(),
     tsconfigPaths(),
