@@ -1,3 +1,4 @@
+import privacyPolicy from "@/data/privacy-policy.json";
 import { createFileRoute } from "@tanstack/react-router";
 import { SkyBackdrop } from "@/components/SkyBackdrop";
 import { CourseFinder } from "@/components/CourseFinder";
@@ -179,74 +180,86 @@ function Home() {
       <Testimonials />
       <Visit />
       
-      <section className="py-20 px-6 bg-black text-white">
+      <section id="branches" className="relative scroll-mt-28 py-20 px-6 bg-black text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Branches</h2>
             <p className="text-gray-400 text-lg">Visit our aviation academy branches across India</p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Visakhapatnam Branch */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
+                title="Visakhapatnam branch Google Map"
+                referrerPolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800.3824903009745!2d83.30642399999999!3d17.726607999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQzJzM1LjgiTiA4M8KwMTgnMjMuMSJF!5e0!3m2!1sen!2sin!4v1778486299371!5m2!1sen!2sin"
                 width="100%"
                 height="280"
                 style={{ border: 0 }}
-                loading="lazy"
+                loading="eager"
                 allowFullScreen
               ></iframe>
               <div className="p-6">
                 <h3 className="text-2xl font-normal mb-2">Visakhapatnam Branch</h3>
                 <p className="text-gray-400">Professional aviation training centre in Visakhapatnam.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=17.726608%2C83.306424" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-semibold text-black hover:bg-yellow-300"><MapPin className="h-4 w-4" /> Open in Google Maps<span className="sr-only">: Visakhapatnam (opens in a new tab)</span></a>
               </div>
             </div>
 
             {/* Rajahmundry Branch */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
+                title="Rajahmundry branch Google Map"
+                referrerPolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Rajahmundry&output=embed"
                 width="100%"
                 height="280"
                 style={{ border: 0 }}
-                loading="lazy"
+                loading="eager"
                 allowFullScreen
               ></iframe>
               <div className="p-6">
                 <h3 className="text-2xl font-normal mb-2">Rajahmundry Branch</h3>
                 <p className="text-gray-400">Professional aviation training centre in Rajahmundry.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Calibre+Aviation+Academy+Rajahmundry" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-semibold text-black hover:bg-yellow-300"><MapPin className="h-4 w-4" /> Open in Google Maps<span className="sr-only">: Rajahmundry (opens in a new tab)</span></a>
               </div>
             </div>
 
             {/* Vijayawada Branch - Fixed Map */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
+                title="Vijayawada branch Google Map"
+                referrerPolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1912.784508854291!2d80.6510099!3d16.4973466!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb4cf2f619ab%3A0x2fbe50c861ca8ffe!2sCalibre%20Aviation%20Academy%20Private%20Limited!5e0!3m2!1sen!2sin!4v1779685176074!5m2!1sen!2sin"
                 width="100%"
                 height="280"
                 style={{ border: 0 }}
-                loading="lazy"
+                loading="eager"
                 allowFullScreen
               ></iframe>
               <div className="p-6">
                 <h3 className="text-2xl font-normal mb-2">Vijayawada Branch</h3>
                 <p className="text-gray-400">Aviation academy branch serving Vijayawada students.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Calibre+Aviation+Academy+Vijayawada" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-semibold text-black hover:bg-yellow-300"><MapPin className="h-4 w-4" /> Open in Google Maps<span className="sr-only">: Vijayawada (opens in a new tab)</span></a>
               </div>
             </div>
 
             {/* Hyderabad Branch */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
+                title="Hyderabad branch Google Map"
+                referrerPolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Hyderabad&output=embed"
                 width="100%"
                 height="280"
                 style={{ border: 0 }}
-                loading="lazy"
+                loading="eager"
                 allowFullScreen
               ></iframe>
               <div className="p-6">
                 <h3 className="text-2xl font-normal mb-2">Hyderabad Branch</h3>
-                <p className="text-gray-400">Main aviation training branch near Hyderabad airport.</p>
+                <p className="text-gray-400">Sanjeeva Reddy Nagar, Hyderabad. Near Metro Pillar 1033.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Calibre+Aviation+Academy+Sanjeeva+Reddy+Nagar+Hyderabad" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-semibold text-black hover:bg-yellow-300"><MapPin className="h-4 w-4" /> Open in Google Maps<span className="sr-only">: Hyderabad (opens in a new tab)</span></a>
               </div>
             </div>
           </div>
@@ -339,6 +352,7 @@ function Home() {
               ></textarea>
             </div>
 
+            <p className="text-sm text-gray-300">Read our <a href="/privacy-policy/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-yellow-400">Privacy Policy (opens in a new tab)</a> to learn how we handle your information.</p>
             <button 
               type="submit" 
               disabled={isSubmitting}
@@ -481,6 +495,7 @@ function Home() {
                       />
                     </div>
 
+                    <p className="text-xs text-gray-600">Read our <a href="/privacy-policy/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-blue-800">Privacy Policy (opens in a new tab)</a> to learn how we handle your information.</p>
                     <button
                       type="submit"
                       disabled={isSubmitting}
@@ -566,7 +581,7 @@ function Nav({ onEnquireClick }: { onEnquireClick: () => void }) {
     { id: "courses", label: "Courses" },
     { id: "placements", label: "Placements" },
     { id: "testimonials", label: "Reviews" },
-    { id: "visit", label: "Visit" },
+    { id: "branches", label: "Branches" },
   ];
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/75 border-b border-border/60">
@@ -963,10 +978,29 @@ function Visit() {
 
 function Footer() {
   return (
-    <footer className="relative px-6 py-12 border-t border-border/60">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} Calibre Aviation Academy. All rights reserved.</p>
-        <p className="font-mono text-[11px] uppercase tracking-[0.25em]">Job-ready · in · six · months</p>
+    <footer id="privacy" className="relative bg-primary text-primary-foreground px-6 pt-12 pb-28 md:pb-12 scroll-mt-28">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col sm:flex-row gap-6 justify-between border-b border-white/20 pb-8">
+          <div><p className="font-semibold text-xl">Calibre Aviation Academy</p><p className="mt-2 text-sm text-white/75">Your next chapter starts here.</p></div>
+          <a href="#branches" className="self-start underline underline-offset-4">Find a branch · Google Maps</a>
+        </div>
+        <details className="group mt-8 rounded-2xl border border-white/30 bg-white/5" id="privacy-policy">
+          <summary className="cursor-pointer p-6 text-xl font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-yellow-400">
+            Privacy Policy <span className="block mt-2 text-sm font-normal text-white/75">Click to read our full policy here on this page.</span>
+          </summary>
+          <div className="rounded-b-2xl bg-white text-slate-800 p-6 md:p-10 text-base leading-relaxed">
+            <p className="text-sm text-slate-600">Effective date: 06 October 2026 · Last updated: 09 October 2026</p>
+            <a href="/Calibre_Aviation_Privacy_Policy.pdf" download className="inline-block my-5 rounded-lg bg-primary px-5 py-3 text-white font-semibold">Download PDF</a>
+            <p>{privacyPolicy.intro}</p>
+            {privacyPolicy.sections.map(([heading, paragraphs]) => (
+              <section key={heading as string} className="mt-7 border-t border-slate-200 pt-6">
+                <h3 className="text-lg font-bold mb-3">{heading as string}</h3>
+                {(paragraphs as string[]).map((paragraph, i) => <p key={i} className="mb-3 break-words">{paragraph}</p>)}
+              </section>
+            ))}
+          </div>
+        </details>
+        <p className="mt-8 text-sm text-white/70">© {new Date().getFullYear()} Calibre Aviation Academy. All rights reserved.</p>
       </div>
     </footer>
   );
