@@ -249,7 +249,7 @@ function Home() {
               <iframe
                 title="Hyderabad branch Google Map"
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Calibre+Aviation+Academy+Hyderabad&output=embed"
+                src="https://www.google.com/maps?q=Calibre+Aviation+Academy%2C+3rd+floor%2C+Plot+No.+7-1-211%2FA%2C+above+Leon+Burger%2C+Swathi+Avenue%2C+Ameerpet%2C+Hyderabad%2C+Telangana+500016&output=embed"
                 width="100%"
                 height="280"
                 style={{ border: 0 }}
@@ -258,8 +258,8 @@ function Home() {
               ></iframe>
               <div className="p-6">
                 <h3 className="text-2xl font-normal mb-2">Hyderabad Branch</h3>
-                <p className="text-gray-400">Sanjeeva Reddy Nagar, Hyderabad. Near Metro Pillar 1033.</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Calibre+Aviation+Academy+Sanjeeva+Reddy+Nagar+Hyderabad" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-semibold text-black hover:bg-yellow-300"><MapPin className="h-4 w-4" /> Open in Google Maps<span className="sr-only">: Hyderabad (opens in a new tab)</span></a>
+                <p className="text-gray-400">3rd floor, Plot No. 7-1-211/A, above Leon Burger, Swathi Avenue, Ameerpet, Hyderabad, Telangana 500016</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Calibre+Aviation+Academy%2C+3rd+floor%2C+Plot+No.+7-1-211%2FA%2C+above+Leon+Burger%2C+Swathi+Avenue%2C+Ameerpet%2C+Hyderabad%2C+Telangana+500016" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-semibold text-black hover:bg-yellow-300"><MapPin className="h-4 w-4" /> Open in Google Maps<span className="sr-only">: Hyderabad (opens in a new tab)</span></a>
               </div>
             </div>
           </div>
@@ -954,7 +954,7 @@ function Visit() {
               <MapPin className="h-5 w-5 shrink-0 mt-0.5 text-accent" />
               <span>
                 <strong className="block">Calibre Aviation Academy · Hyderabad</strong>
-                2nd floor, Veda Library Building, 105/2 RT, Road No. 1, Sanjeeva Reddy Nagar (near Metro Pillar 1033), Hyderabad, Telangana 500038
+                3rd floor, Plot No. 7-1-211/A, above Leon Burger, Swathi Avenue, Ameerpet, Hyderabad, Telangana 500016
               </span>
             </li>
             <li className="flex gap-3">
@@ -989,7 +989,7 @@ function Footer() {
             Privacy Policy <span className="block mt-2 text-sm font-normal text-white/75">Click to read our full policy here on this page.</span>
           </summary>
           <div className="rounded-b-2xl bg-white text-slate-800 p-6 md:p-10 text-base leading-relaxed">
-            <p className="text-sm text-slate-600">Effective date: 06 October 2026 · Last updated: 09 October 2026</p>
+            <p className="text-sm text-slate-600">Effective date: 06 October 2026 · Last updated: 04 November 2026</p>
             <a href="/Calibre_Aviation_Privacy_Policy.pdf" download className="inline-block my-5 rounded-lg bg-primary px-5 py-3 text-white font-semibold">Download PDF</a>
             <p>{privacyPolicy.intro}</p>
             {privacyPolicy.sections.map(([heading, paragraphs]) => (
