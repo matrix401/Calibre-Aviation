@@ -244,6 +244,25 @@ function Home() {
               </div>
             </div>
 
+            {/* Tirupati Branch */}
+            <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+              <iframe
+                title="Tirupati branch Google Map"
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=13.621934,79.410876&z=17&output=embed"
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                loading="eager"
+                allowFullScreen
+              ></iframe>
+              <div className="p-6">
+                <h3 className="text-2xl font-normal mb-2">Tirupati Branch</h3>
+                <p className="text-gray-400">Avilali, Tirupati, Andhra Pradesh.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=13.621934%2C79.410876" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-5 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-semibold text-black hover:bg-yellow-300"><MapPin className="h-4 w-4" /> Open in Google Maps<span className="sr-only">: Tirupati (opens in a new tab)</span></a>
+              </div>
+            </div>
+
             {/* Hyderabad Branch */}
             <div className="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
               <iframe
